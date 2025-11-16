@@ -1,0 +1,37 @@
+{
+  "extends": "./.svelte-kit/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "$app/*": ["./node_modules/.bin/svelte-kit/node_modules/@sveltejs/kit/src/runtime/app/*"],
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"],
+      "$game": ["src/game"],
+      "$game/*": ["src/game/*"],
+      "$i18n": ["src/i18n"],
+      "$i18n/*": ["src/i18n/*"],
+      "$routes": ["src/routes"],
+      "$routes/*": ["src/routes/*"],
+      "$components": ["src/components"],
+      "$components/*": ["src/components/*"],
+      "$constants": ["src/constants"],
+      "$constants/*": ["src/constants/*"],
+      "$static/*": ["static/*"],
+      "$src/*": ["src/*"]
+    },
+    "plugins": [
+      {
+        "transform": "typia/lib/transform",
+        "assert": true
+      }
+    ]
+  },
+  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte"],
+  "exclude": [
+    "node_modules/**",
+    ".svelte-kit/**",
+    "dist/**",
+    "build/**",
+    "**/*.stories.svelte"
+  ]
+}

@@ -11,6 +11,7 @@ export const fetcher = (options: {
 		headers: {
 			'Content-Type': 'application/json',
 		},
+		mode: 'cors',
 		...(method === 'GET' ? {} : { body: JSON.stringify(variables) }),
 	});
 };
