@@ -1,5 +1,5 @@
 import { locales } from 'config-lingui';
-import { page } from '$app/state';
+import { page } from '$app/page';
 
 export type Language = (typeof locales)[number];
 
@@ -11,15 +11,14 @@ export type Key =
 	| 'device'
 	| 'social'
 	| 'demo'
-	| 'force'
-;
+	| 'force';
 
 const getUrlSearchParam = (key: Key) => page.url.searchParams.get(key);
 
 const lang = () =>
-	getUrlSearchParam('lang') === 'br' ? 'pt' : (getUrlSearchParam('lang') as Language) || 'en';
+	(getUrlSearchParam('lang') as Language) || 'en';
 const sessionID = () => getUrlSearchParam('sessionID') || '';
-const rgsUrl = () => getUrlSearchParam('rgs_url') || '';
+const rgsUrl = () => getUrlSearchParam('rgs_url') || import.meta.env.VITE_RGS_URL || '';
 const force = () => getUrlSearchParam('force') === 'true';
 const social = () => getUrlSearchParam('social') === 'true';
 

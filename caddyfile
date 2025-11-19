@@ -1,4 +1,5 @@
 :8080 {
     root * .
     file_server
+    reverse_proxy /api/* https://rgs.stake-engine.com
 }
